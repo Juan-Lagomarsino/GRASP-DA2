@@ -1,0 +1,33 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+}
+title Polimorfismo — cada instrumento sabe afinarse
+interface InstrumentoAfinable {
+  + Afinar() : void
+}
+class Afinador
+class Piano {
+  + Afinar() : void
+}
+class Guitarra {
+  + Afinar() : void
+}
+class Bajo {
+  + Afinar() : void
+}
+Afinador ..> InstrumentoAfinable
+Piano ..|> InstrumentoAfinable
+Guitarra ..|> InstrumentoAfinable
+Bajo ..|> InstrumentoAfinable
+@enduml

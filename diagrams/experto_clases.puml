@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+  BackgroundColor<<ui>> #FFFFCC
+}
+title Experto en Informacion — responsabilidades derivadas
+class Factura {
+  + fecha() : DateTime
+  + RUT() : string
+  + Total() : float
+}
+class LineaFactura {
+  + cantidad() : int
+  + subtotal() : float
+}
+class Producto {
+  + descripcion() : string
+  + precioUnitario() : float
+}
+Factura "1" *-- "1..*" LineaFactura
+LineaFactura "0..*" --> "1" Producto
+@enduml

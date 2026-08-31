@@ -1,0 +1,28 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+  BackgroundColor<<ui>> #FFFFCC
+}
+title Alto acoplamiento — Class0 y Class3 dependen de muchas
+class Class0
+class Class3
+class Class1
+class Class2
+class Class4
+Class0 --> Class4
+Class0 --> Class2
+Class0 --> Class1
+Class3 --> Class4
+Class3 --> Class2
+Class3 --> Class1
+@enduml

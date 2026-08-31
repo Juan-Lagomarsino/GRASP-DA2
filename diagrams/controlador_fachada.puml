@@ -1,0 +1,24 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam classBackgroundColor #FFFFCC
+title Controlador de Fachada — una clase para todo el sistema
+class "UI Cliente" as UC
+class "UI Producto" as UP
+class "UI Proveedor" as UPr
+class "SistemaVentas" as SV #AED7F0
+class ClassX
+class ClassY
+UC ..> SV
+UP ..> SV
+UPr ..> SV
+SV --> ClassX
+SV --> ClassY
+@enduml

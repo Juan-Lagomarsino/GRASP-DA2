@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+  BackgroundColor<<ui>> #FFFFCC
+}
+title Experto — calculo del Total (delegacion)
+actor Actor
+participant ":Factura" as F
+participant ":LineaFactura" as L
+participant ":Producto" as P
+Actor -> F : Total()
+loop 1..*
+  F -> L : subtotal()
+  L -> P : precioUnitario()
+  L -> L : cantidad()
+end
+@enduml

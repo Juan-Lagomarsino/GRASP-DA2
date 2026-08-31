@@ -1,0 +1,30 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+}
+title Fabricacion Pura — DESPUES (clase artificial GeneradorPDF)
+class Program {
+  + main() : void
+}
+class Factura {
+  - _items : List<decimal>
+  + CalcularTotal() : decimal
+  + CalcularIva() : decimal
+}
+class GeneradorPDF {
+  + Exportar(f : Factura) : void
+}
+Program ..> Factura
+Program ..> GeneradorPDF
+GeneradorPDF ..> Factura
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+}
+title Indireccion — intermediario entre Usuario y el servicio
+class Usuario {
+  - _email : String
+  + NotificarRegistro(n : INotificador) : void
+}
+interface INotificador {
+  + Notificar(dest : String, msg : String) : void
+}
+class ServicioCorreo {
+  + Notificar(dest : String, msg : String) : void
+}
+Usuario ..> INotificador
+ServicioCorreo ..|> INotificador
+@enduml

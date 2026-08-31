@@ -1,0 +1,26 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+}
+title Mejor — cumple Demeter (Comercio solo habla con Cliente)
+actor Actor
+participant ":Comercio" as C
+participant ":Cliente" as Cl
+participant ":Billetera" as B
+Actor -> C : Cobrar(monto, cli)
+C -> Cl : GetPagar(monto)
+Cl -> B : GetCantidadDinero()
+alt total >= monto
+  Cl -> B : SacarDinero(monto)
+  Cl -> B : SetCantidadDinero(...)
+end
+@enduml

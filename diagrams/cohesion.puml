@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+skinparam backgroundColor transparent
+skinparam shadowing false
+skinparam dpi 150
+skinparam classFontSize 15
+skinparam classAttributeFontSize 14
+skinparam ArrowColor #333333
+skinparam classBorderColor #6a6a6a
+skinparam class {
+  BackgroundColor #FFFFCC
+  BackgroundColor<<control>> #AED7F0
+  BackgroundColor<<ui>> #FFFFCC
+}
+title Baja cohesion — metodos no afines en una clase
+class Empleado {
+  + Nombre() : string
+  + Apellido() : string
+  + Direccion() : string
+  + Cargo() : string
+  + Antiguedad() : int
+  + SueldoBase() : money
+  + NombreUsuario() : string
+  + Contrasena() : string
+}
+note right of Empleado
+  Mezcla datos de RRHH
+  con datos de seguridad
+  => baja cohesion
+end note
+@enduml
